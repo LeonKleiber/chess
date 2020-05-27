@@ -1,7 +1,7 @@
 package data;
 
+import logic.Position;
 import javax.swing.*;
-import javax.swing.text.Position;
 
 
 public abstract class ChessPiece {
@@ -30,7 +30,7 @@ public abstract class ChessPiece {
     }
 
 
-    public abstract Position[] movementOption(Position position);
+    public abstract Position[] getMovementOptions(Position position);
 
     public ImageIcon getImage(){
         return image;

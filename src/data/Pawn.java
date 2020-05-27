@@ -10,7 +10,7 @@ public class Pawn extends ChessPiece {
     }
 
     @Override
-    public Position[] movementOption(Position position) {
+    public Position[] getMovementOptions(Position position) {
         return new Position[0];
     }
 }
