@@ -1,6 +1,6 @@
 package data;
 
-import javax.swing.text.Position;
+import logic.Position;
 
 public class Rook extends ChessPiece {
 

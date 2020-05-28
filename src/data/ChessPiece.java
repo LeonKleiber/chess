@@ -39,4 +39,5 @@ public abstract class ChessPiece {
     public boolean isPlayerOne() {
         return playerOne;
     }
+
 }

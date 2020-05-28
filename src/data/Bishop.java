@@ -1,6 +1,6 @@
 package data;
 
-import javax.swing.text.Position;
+import logic.Position;
 
 public class Bishop extends ChessPiece {
 
@@ -13,4 +13,5 @@ public class Bishop extends ChessPiece {
     public Position[] getMovementOptions(Position position) {
         return new Position[0];
     }
+
 }
