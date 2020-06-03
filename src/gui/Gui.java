@@ -6,14 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import data.*;
 
-public class Gui extends JFrame implements ActionListener {
+public class Gui extends JFrame {
 
 
     private JButton[][] buttonList = new JButton[8][8];
 
     private JPanel buttonPanel = new JPanel(new GridLayout(8, 8));
-    private JPanel chessmanPanelWhite = new JPanel(new GridLayout(8, 2));
-    private JPanel chessmanPanelBlack = new JPanel(new GridLayout(8, 2));
+    //private JPanel chessmanPanelWhite = new JPanel(new GridLayout(8, 2));
+    //private JPanel chessmanPanelBlack = new JPanel(new GridLayout(8, 2));
 
 
 
@@ -36,13 +36,13 @@ public class Gui extends JFrame implements ActionListener {
                         btnColor = Color.BLACK;
                     }
                 }
-                buttonList[y][x] = createButton(btnColor);
+                buttonList[y][x] = createButton(x,y,btnColor);
             }
         }
 
         add(buttonPanel, BorderLayout.CENTER);
-        add(chessmanPanelWhite, BorderLayout.EAST);
-        add(chessmanPanelBlack, BorderLayout.WEST);
+        //add(chessmanPanelWhite, BorderLayout.EAST);
+        //add(chessmanPanelBlack, BorderLayout.WEST);
 
         setVisible(true);
         setSize(600, 600);
@@ -51,15 +51,12 @@ public class Gui extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
     }
 
-    private JButton createButton(Color color) {
-        JButton newBtn = new JButton();
-        newBtn.setBackground(color);
-        newBtn.setOpaque(true);
-        buttonPanel.add(newBtn);
-        return newBtn;
+    private JButton createButton(int x, int y, Color color) {
+        ChessField newField = new ChessField(x,y,color);
+        newField.addActionListener(new MovementListener());
+        buttonPanel.add(newField);
+        return newField;
     }
 
-    public void actionPerformed(ActionEvent e) {
 
-    }
 }
