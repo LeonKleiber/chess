@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="199923f5-a7b6-4f9c-be23-a82607c6e745" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/ChessPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter/BoardStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/starter/BoardStart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
