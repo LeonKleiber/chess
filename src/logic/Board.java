@@ -1,6 +1,7 @@
 package logic;
 
 import data.*;
+import dto.Position;
 
 public class Board {
 

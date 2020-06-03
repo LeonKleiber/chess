@@ -1,4 +1,4 @@
-package logic;
+package dto;
 
 public class Position {
     int x;

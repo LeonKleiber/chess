@@ -1,6 +1,6 @@
 package data;
 
-import logic.Position;
+import dto.Position;
 import javax.swing.*;
 
 

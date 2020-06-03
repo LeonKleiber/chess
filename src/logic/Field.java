@@ -1,6 +1,7 @@
 package logic;
 
 import data.ChessPiece;
+import dto.Position;
 
 public class Field {
     ChessPiece chessPiece;
