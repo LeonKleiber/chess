@@ -11,6 +11,7 @@ public class Rook extends ChessPiece {
 
     @Override
     public Position[] getMovementOptions(Position position) {
+        position.x = 4;
         return new Position[0];
     }
 }
