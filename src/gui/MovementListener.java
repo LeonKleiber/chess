@@ -1,5 +1,6 @@
 package gui;
 
+import dto.Position;
 import logic.*;
 
 import javax.swing.*;
@@ -16,10 +17,9 @@ public class MovementListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
+        System.out.println(actionEvent.getSource().getClass().toString());
         ChessField fieldBtn = (ChessField) actionEvent.getSource();
-        Field field = board.getField(fieldBtn.getPosition());
-        ImageIcon image = field.getImage();
-        System.out.println();
+        System.out.println(fieldBtn.position.x +" und " +fieldBtn.position.y);
+
     }
 }

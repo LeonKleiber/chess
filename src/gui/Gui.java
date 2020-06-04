@@ -1,13 +1,16 @@
 package gui;
 
+import dto.Position;
+import logic.Board;
+import logic.Field;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import data.*;
 
 public class Gui extends JFrame {
 
+
+    private Board board = new Board();
 
     private JButton[][] buttonList = new JButton[8][8];
 
@@ -21,7 +24,7 @@ public class Gui extends JFrame {
         setLayout(new BorderLayout());
 
         Color btnColor;
-        for (int y = 0; y < buttonList.length; y++) {
+        for (int y = buttonList.length -1; y >=0 ; y--) {
             for (int x = 0; x < buttonList[y].length; x++) {
                 if (y%2 == 0){
                     if (x %2 == 0) {
@@ -51,11 +54,15 @@ public class Gui extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    private JButton createButton(int x, int y, Color color) {
-        ChessField newField = new ChessField(x,y,color);
-        newField.addActionListener(new MovementListener());
-        buttonPanel.add(newField);
-        return newField;
+    private JButton createButton(int x, int y, Color c) {
+        ChessField fieldBtn;
+        Position p = new Position(x,y);
+        ImageIcon icon = board.getField(p).getImage();
+        fieldBtn = new ChessField(p, c, icon);
+        fieldBtn.addActionListener(new MovementListener(board));
+        buttonPanel.add(fieldBtn);
+
+        return fieldBtn;
     }
 
 

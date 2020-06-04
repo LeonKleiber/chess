@@ -15,7 +15,7 @@ public abstract class ChessPiece {
     }
 
     private ImageIcon createImageFromName(String imageName) {
-        String path = "images/player";
+        String path = "/images/player";
 
         if(playerOne) {
             path += "One";
@@ -25,7 +25,7 @@ public abstract class ChessPiece {
 
         path += "/"+ imageName + ".png";
         System.out.println(path);
-        return new ImageIcon(path);
+        return new ImageIcon(getClass().getResource(path));
 
     }
 

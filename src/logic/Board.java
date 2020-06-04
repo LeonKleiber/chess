@@ -8,26 +8,28 @@ public class Board {
     Field [][] fields = new Field[8][8];
 
     public Board(){
+        Field field;
         for (int y = 0; y < fields.length; y++){
             for(int x = 0; x < fields[y].length; x++){
                 switch (y){
                     case 0:
-                        new Field(new Position(x,y),getChessPiece(true, x));
+                        field = new Field(new Position(x,y),getChessPiece(true, x));
                         break;
                     case 7:
-                        new Field(new Position(x,y),getChessPiece(false, x));
+                        field = new Field(new Position(x,y),getChessPiece(false, x));
                         break;
                     case 1:
-                        new Field(new Position(x,y), new Pawn(true));
+                        field = new Field(new Position(x,y), new Pawn(true));
                         break;
                     case 6:
-                        new Field(new Position(x,y), new Pawn(false));
+                        field = new Field(new Position(x,y), new Pawn(false));
                         break;
                     default:
-                        new Field(new Position(x,y));
+                        field = new Field(new Position(x,y));
                         System.out.println("empty"+x+y);
                         break;
                 }
+                fields[y][x] = field;
 
             }
         }

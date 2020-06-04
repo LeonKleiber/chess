@@ -35,7 +35,11 @@ public class Field {
     }
 
     public ImageIcon getImage() {
-        return chessPiece.getImage();
+        if (chessPiece != null){
+            return chessPiece.getImage();
+        }
+        return null;
+
     }
 
     public Position getPosition() {
