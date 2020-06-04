@@ -3,9 +3,11 @@ package logic;
 import data.ChessPiece;
 import dto.Position;
 
+import javax.swing.*;
+
 public class Field {
-    ChessPiece chessPiece;
-    Position position;
+    private ChessPiece chessPiece;
+    private Position position;
 
     public Field(Position position){
         this.position = position;
@@ -30,5 +32,13 @@ public class Field {
 
     public void moveHere(ChessPiece chessPiece){
         this.chessPiece = chessPiece;
+    }
+
+    public ImageIcon getImage() {
+        return chessPiece.getImage();
+    }
+
+    public Position getPosition() {
+        return position;
     }
 }

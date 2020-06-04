@@ -14,4 +14,8 @@ public class ChessField extends JButton {
         setOpaque(true);
         this.position = new Position(x,y);
     }
+
+    public Position getPosition() {
+        return position;
+    }
 }

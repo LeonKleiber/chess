@@ -50,4 +50,8 @@ public class Board {
                 return new King(playerOne);
         }
     }
+
+    public Field getField(Position position) {
+        return fields[position.y][position.x];
+    }
 }
