@@ -2,7 +2,7 @@ package data;
 
 import dto.Position;
 
-public class Rook extends ChessPiece {
+public class  Rook extends ChessPiece {
 
     public Rook(boolean playerOne){
         super("Rook", playerOne);
