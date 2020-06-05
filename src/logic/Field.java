@@ -45,4 +45,8 @@ public class Field {
     public Position getPosition() {
         return position;
     }
+
+    public ChessPiece getChessPiece() {
+        return chessPiece;
+    }
 }

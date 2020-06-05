@@ -12,7 +12,7 @@ public class Gui extends JFrame {
 
     private Board board = new Board();
 
-    private JButton[][] buttonList = new JButton[8][8];
+    private ChessField[][] buttonList = new ChessField[8][8];
 
     private JPanel buttonPanel = new JPanel(new GridLayout(8, 8));
     //private JPanel chessmanPanelWhite = new JPanel(new GridLayout(8, 2));
@@ -54,16 +54,19 @@ public class Gui extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    private JButton createButton(int x, int y, Color c) {
+    private ChessField createButton(int x, int y, Color c) {
         ChessField fieldBtn;
         Position p = new Position(x,y);
         ImageIcon icon = board.getField(p).getImage();
         fieldBtn = new ChessField(p, c, icon);
-        fieldBtn.addActionListener(new MovementListener(board));
+        fieldBtn.addActionListener(new MovementListener(board, this));
         buttonPanel.add(fieldBtn);
 
         return fieldBtn;
     }
 
 
+    public ChessField getChessField(Position p) {
+        return buttonList[p.y][p.x];
+    }
 }

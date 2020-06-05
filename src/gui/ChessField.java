@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class ChessField extends JButton {
 
-    Position position;
+    private Position position;
 
     ChessField (Position p , Color c, Icon i){
         setBackground(c);

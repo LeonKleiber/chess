@@ -24,7 +24,6 @@ public abstract class ChessPiece {
         }
 
         path += "/"+ imageName + ".png";
-        System.out.println(path);
         return new ImageIcon(getClass().getResource(path));
 
     }

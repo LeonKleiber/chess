@@ -1,59 +1,62 @@
 package logic;
 
-import data.*;
+import data.ChessPiece;
 import dto.Position;
 
 public class Board {
 
-    Field [][] fields = new Field[8][8];
+    Field [][] fields;
+
+    TurnManager turnManager ;
+
+    Field movingField;
+
+    Position[] movementOption;
 
     public Board(){
-        Field field;
-        for (int y = 0; y < fields.length; y++){
-            for(int x = 0; x < fields[y].length; x++){
-                switch (y){
-                    case 0:
-                        field = new Field(new Position(x,y),getChessPiece(true, x));
-                        break;
-                    case 7:
-                        field = new Field(new Position(x,y),getChessPiece(false, x));
-                        break;
-                    case 1:
-                        field = new Field(new Position(x,y), new Pawn(true));
-                        break;
-                    case 6:
-                        field = new Field(new Position(x,y), new Pawn(false));
-                        break;
-                    default:
-                        field = new Field(new Position(x,y));
-                        System.out.println("empty"+x+y);
-                        break;
-                }
-                fields[y][x] = field;
-
-            }
-        }
-    }
-
-    private ChessPiece getChessPiece(boolean playerOne, int x) {
-        switch (x){
-            case 0:
-            case 7:
-                return new Rook(playerOne);
-            case 1:
-            case 6:
-                return new Knight(playerOne);
-            case 2:
-            case 5:
-                return new Bishop(playerOne);
-            case 3:
-                return new Queen(playerOne);
-            default:
-                return new King(playerOne);
-        }
+        fields = new StartPosition().getFields();
+        turnManager = new TurnManager();
     }
 
     public Field getField(Position position) {
         return fields[position.y][position.x];
+    }
+
+    public Position validateClick(Position position) {
+        boolean valid;
+        boolean repaint = false;
+        if(turnManager.isFirstClickInTurn()){
+            if(turnManager.validateFirstClick(getField(position))){
+                movingField = getField(position);
+                valid= true;
+            } else {
+                valid = false;
+            }
+        } else {
+            if (turnManager.validateSecondClick(getField(position), movementOption)){
+                valid=true;
+                ChessPiece activePiece = movingField.getChessPiece();
+                movingField.moveAway();
+                getField(position).moveHere(activePiece);
+                repaint= true;
+            } else{
+                valid = false;
+            }
+        }
+
+        if (valid){
+            turnManager.validClick();
+        } else {
+            System.out.println("invalid");
+            turnManager.invalidClick();
+        }
+
+        if (repaint){
+            return movingField.getPosition();
+        }
+        else {
+            return null;
+        }
+
     }
 }
