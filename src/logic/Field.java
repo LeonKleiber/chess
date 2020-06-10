@@ -1,6 +1,7 @@
 package logic;
 
 import data.ChessPiece;
+import data.Pawn;
 import dto.Position;
 
 import javax.swing.*;
@@ -20,11 +21,55 @@ public class Field {
         this.chessPiece = chessPiece;
     }
 
-    public ArrayList<ArrayList<Position>> getMovementOptions(){
+    public ArrayList<ArrayList<Position>> getMovementOptions(Board b){
         if (chessPiece != null){
-            return chessPiece.getMovementOptions(position);
+            ArrayList<ArrayList<Position>> positions;
+            if (!(chessPiece instanceof Pawn)){
+                positions = getPieceMovement(b);
+            } else {
+                positions = getPawnMovement(b);
+            }
+            return positions;
         }
         return null;
+    }
+
+    private ArrayList<ArrayList<Position>> getPawnMovement(Board b) {
+        ArrayList<ArrayList<Position>> positionArray;
+        positionArray = chessPiece.getMovementOptions(position);
+        positionArray.set(0, getMoveOptions(b, positionArray.get(0)));
+        positionArray.set(1, getKillOptions(b, positionArray.get(1)));
+        return positionArray;
+    }
+
+    private ArrayList<Position> getKillOptions(Board b, ArrayList<Position> positions) {
+        ArrayList<Position> newKillOptions = new ArrayList<>();
+        for(Position position: positions ){
+            Field checkField = b.getField(position);
+            if(checkField.getChessPiece() != null && checkField.getChessPiece().isPlayerOne() != chessPiece.isPlayerOne()){
+                newKillOptions.add(position);
+            }
+        }
+        return newKillOptions;
+    }
+
+    private ArrayList<Position> getMoveOptions(Board b, ArrayList<Position> positions) {
+        ArrayList<Position> newMoveOptions = new ArrayList<>();
+        for(Position position: positions ){
+            if (b.getField(position).getChessPiece()== null){
+                newMoveOptions.add(position);
+            }
+            else {
+                break;
+            }
+        }
+        return newMoveOptions;
+    }
+
+    private ArrayList<ArrayList<Position>> getPieceMovement(Board b) {
+        ArrayList<ArrayList<Position>> positions;
+        positions = chessPiece.getMovementOptions(position);
+        return positions;
     }
 
     public void moveAway(){

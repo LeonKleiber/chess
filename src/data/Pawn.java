@@ -33,12 +33,13 @@ public class Pawn extends ChessPiece {
         moves.add(new Position(position.x, y));
         if (firstMove){
             firstMove = false;
+            int yFirst;
             if (isPlayerOne()){
-                y = position.y +2;
+                yFirst = position.y +2;
             } else {
-                y = position.y-2;
+                yFirst = position.y-2;
             }
-            moves.add(new Position(position.x, y));
+            moves.add(new Position(position.x, yFirst));
         }
         positions.add(moves);
 

@@ -14,7 +14,6 @@ public abstract class ChessPiece {
         this.playerOne = playerOne;
         this.image = createImageFromName(imageName);
     }
-
     private ImageIcon createImageFromName(String imageName) {
         String path = "/images/player";
 
