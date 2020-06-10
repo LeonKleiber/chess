@@ -3,15 +3,23 @@ package gui;
 import dto.Position;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class ChessField extends JButton {
 
-    Position position;
+    private Position position;
 
-    ChessField (int x, int y , Color color){
-        setBackground(color);
+    ChessField (Position p , Color c, Icon i){
+        setBackground(c);
         setOpaque(true);
-        this.position = new Position(x,y);
+        setIcon(i);
+        setBorder(new EmptyBorder(0,0,0,0));
+        this.position = p;
+    }
+
+
+    public Position getPosition() {
+        return position;
     }
 }
