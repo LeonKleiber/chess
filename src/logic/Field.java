@@ -3,6 +3,7 @@ package logic;
 import data.ChessPiece;
 import dto.Position;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Field {
@@ -19,7 +20,7 @@ public class Field {
         this.chessPiece = chessPiece;
     }
 
-    public ArrayList<ArrayList<Position>> getMovementOptions(Position position){
+    public ArrayList<ArrayList<Position>> getMovementOptions(){
         if (chessPiece != null){
             return chessPiece.getMovementOptions(position);
         }
@@ -32,5 +33,20 @@ public class Field {
 
     public void moveHere(ChessPiece chessPiece){
         this.chessPiece = chessPiece;
+    }
+
+    public ImageIcon getImage() {
+        if (chessPiece != null){
+            return chessPiece.getImage();
+        }
+        return null;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public ChessPiece getChessPiece() {
+        return chessPiece;
     }
 }
