@@ -67,9 +67,31 @@ public class Field {
     }
 
     private ArrayList<ArrayList<Position>> getPieceMovement(Board b) {
-        ArrayList<ArrayList<Position>> positions;
-        positions = chessPiece.getMovementOptions(position);
-        return positions;
+        ArrayList<ArrayList<Position>> positionArray;
+        positionArray = chessPiece.getMovementOptions(position);
+        for(int i = 0; i<positionArray.size();i++){
+            positionArray.set(i, getOptions(b, positionArray.get(i)));
+        }
+        return positionArray;
+    }
+
+    private ArrayList<Position> getOptions(Board b, ArrayList<Position> positions) {
+        ArrayList<Position> newMoveOptions = new ArrayList<>();
+        for(Position position: positions ){
+            Field checkField = b.getField(position);
+            if(checkField.getChessPiece() == null){
+                newMoveOptions.add(position);
+            } else {
+                if (checkField.getChessPiece().isPlayerOne() != chessPiece.isPlayerOne()){
+                    newMoveOptions.add(position);
+                }
+                break;
+            }
+        }
+        for(Position p : newMoveOptions){
+            System.out.println(p.x + ","+p.y);
+        }
+        return newMoveOptions;
     }
 
     public void moveAway(){
