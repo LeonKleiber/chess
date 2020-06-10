@@ -2,6 +2,7 @@ package data;
 
 import dto.Position;
 import javax.swing.*;
+import java.util.ArrayList;
 
 
 public abstract class ChessPiece {
@@ -29,7 +30,7 @@ public abstract class ChessPiece {
     }
 
 
-    public abstract Position[] getMovementOptions(Position position);
+    public abstract ArrayList<ArrayList<Position>> getMovementOptions(Position position);
 
     public ImageIcon getImage(){
         return image;
