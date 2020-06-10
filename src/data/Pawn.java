@@ -19,14 +19,15 @@ public class Pawn extends ChessPiece {
         int y;
         if (isPlayerOne()){
             y = position.y +1;
+            if (y>7){
+                return positions;
+            }
         } else {
             y = position.y-1;
+            if (y<0){
+                return positions;
+            }
         }
-
-        ArrayList<Position> killMoves= new ArrayList<>(2);
-        killMoves.add(new Position(position.x+1,y));
-        killMoves.add(new Position(position.x-1,y));
-        positions.add(killMoves);
 
         ArrayList<Position> moves = new ArrayList<>();
         moves.add(new Position(position.x, y));
@@ -41,6 +42,14 @@ public class Pawn extends ChessPiece {
         }
         positions.add(moves);
 
+        ArrayList<Position> killMoves= new ArrayList<>(2);
+        if (position.x +1 <= 7){
+            killMoves.add(new Position(position.x+1,y));
+        }
+        if (position.x-1>=0){
+            killMoves.add(new Position(position.x-1,y));
+        }
+        positions.add(killMoves);
 
         return positions;
     }
