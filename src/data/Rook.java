@@ -4,11 +4,10 @@ import dto.Position;
 
 import java.util.ArrayList;
 
-public class Bishop extends ChessPiece {
+public class Rook extends ChessPiece{
 
-    public Bishop(boolean playerOne){
-        super("Bishop", playerOne);
-
+    public Rook(boolean playerOne){
+        super("Rook", playerOne);
     }
 
     @Override
@@ -18,7 +17,7 @@ public class Bishop extends ChessPiece {
         ArrayList<Position> fr = new ArrayList<Position>();
         ArrayList<Position> bl = new ArrayList<Position>();
         ArrayList<Position> br = new ArrayList<Position>();
-         /*   for (int i = position.x; i < 7; i++) {
+           for (int i = position.x; i < 7; i++) {
                 fl.add(new Position(i + 1, position.y));
                 System.out.println(( i + 1) + " und " + position.y);
             }
@@ -37,12 +36,10 @@ public class Bishop extends ChessPiece {
                 br.add(new Position(position.x, i - 1));
                 System.out.println(position.x + " und " + (i - 1));
             }
-            positions.add(fw);
-            positions.add(bw);
-            positions.add(le);
-            positions.add(ri);
-        }*/
+            positions.add(fl);
+            positions.add(fr);
+            positions.add(bl);
+            positions.add(br);
         return positions;
     }
-
 }
