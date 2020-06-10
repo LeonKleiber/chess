@@ -3,6 +3,8 @@ package logic;
 import data.ChessPiece;
 import dto.Position;
 
+import java.util.ArrayList;
+
 public class Field {
     ChessPiece chessPiece;
     Position position;
@@ -17,7 +19,7 @@ public class Field {
         this.chessPiece = chessPiece;
     }
 
-    public Position[] getMovementOptions(Position position){
+    public ArrayList<ArrayList<Position>> getMovementOptions(Position position){
         if (chessPiece != null){
             return chessPiece.getMovementOptions(position);
         }

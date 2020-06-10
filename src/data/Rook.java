@@ -2,6 +2,8 @@ package data;
 
 import dto.Position;
 
+import java.util.ArrayList;
+
 public class Rook extends ChessPiece {
 
     public Rook(boolean playerOne){
@@ -10,24 +12,35 @@ public class Rook extends ChessPiece {
     }
 
     @Override
-    public Position[] getMovementOptions(Position position) {
-        Position[] positions = new Position[14];
-        for (int i = 1; i < 8; i++) {
-            if(position.x + i < 9) {
-                positions[i - 1] = new Position(position.x + i, position.y);
-            }else if(position.x - i >= 0){
-                positions[i - 1] = new Position(position.x - i, position.y);
-            }
-            System.out.println(positions[i - 1].x + " und " + positions[i - 1].y);
+    public ArrayList<ArrayList<Position>> getMovementOptions(Position position) {
+        ArrayList<ArrayList<Position>> positions = new ArrayList<ArrayList<Position>>();
+        ArrayList<Position> fw = new ArrayList<Position>();
+        ArrayList<Position> ri = new ArrayList<>();
+        ArrayList<Position> bw = new ArrayList<Position>();
+        ArrayList<Position> le = new ArrayList<Position>();
+        for (int i = position.x; i < 7; i++) {
+            fw.add(new Position(i + 1, position.y));
+            System.out.println(( i + 1) + " und " + position.y);
         }
-        for (int i = 1; i < 8; i++){
-            if(position.y + i < 9) {
-                positions[i - 1] = new Position(position.x, position.y + i);
-            }else if(position.y - i >= 0){
-                positions[i - 1] = new Position(position.x, position.y - 1);
-            }
-            System.out.println(positions[i - 1].x + " und " + positions[i - 1].y);
+
+        for(int i = position.x; i > 0; i--){
+            bw.add(new Position(i-1, position.y));
+            System.out.println((i-1) +" und "+position.y);
         }
+
+        for (int i = position.y; i < 7; i++) {
+            le.add(new Position(position.x, i + 1));
+            System.out.println(position.x + " und " + (i + 1));
+        }
+
+        for(int i = position.y; i > 0; i--){
+            ri.add(new Position(position.x, i - 1));
+            System.out.println(position.x + " und " + (i - 1));
+        }
+        positions.add(fw);
+        positions.add(bw);
+        positions.add(le);
+        positions.add(ri);
         return positions;
     }
 }

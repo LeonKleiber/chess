@@ -2,6 +2,8 @@ package data;
 
 import dto.Position;
 
+import java.util.ArrayList;
+
 public class Bishop extends ChessPiece {
 
     public Bishop(boolean playerOne){
@@ -10,8 +12,9 @@ public class Bishop extends ChessPiece {
     }
 
     @Override
-    public Position[] getMovementOptions(Position position) {
-        return new Position[0];
+    public ArrayList<ArrayList<Position>> getMovementOptions(Position position) {
+        ArrayList<ArrayList<Position>> positions = new ArrayList<ArrayList<Position>>();
+        return positions;
     }
 
 }
