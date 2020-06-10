@@ -13,8 +13,7 @@ public class Knight extends ChessPiece {
 
     @Override
     public ArrayList<ArrayList<Position>> getMovementOptions(Position position) {
-        ArrayList<ArrayList<Position>> p = new ArrayList<>(1);
-        ArrayList<Position> positions = new ArrayList<>();
+        ArrayList<ArrayList<Position>> positions = new ArrayList<>(1);
 
         positions = checkMove(position.x+1, position.y + 2, positions);
         positions = checkMove(position.x+2, position.y + 1, positions);
@@ -24,14 +23,15 @@ public class Knight extends ChessPiece {
         positions = checkMove(position.x-2, position.y - 1 , positions);
         positions = checkMove(position.x-2, position.y + 1, positions);
         positions = checkMove(position.x-1, position.y + 2, positions);
-
-        p.add(positions);
-        return p;
+        
+        return positions;
     }
 
-    public ArrayList<Position> checkMove(int x, int y, ArrayList<Position> positions){
+    public ArrayList<ArrayList<Position>> checkMove(int x, int y, ArrayList<ArrayList<Position>> positions){
+        ArrayList<Position> p = new ArrayList<>();
         if (!isOutOfBounds(x, y)){
-            positions.add(new Position(x, y));
+            p.add(new Position(x, y));
+            positions.add(p);
         }
         return positions;
     }
