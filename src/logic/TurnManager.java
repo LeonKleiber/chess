@@ -2,9 +2,11 @@ package logic;
 
 import data.ChessPiece;
 import data.King;
+import data.Pawn;
 import dto.Position;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TurnManager {
 
@@ -53,6 +55,17 @@ public class TurnManager {
             checkIfKingDied();
         }
         activeField.moveHere(activePiece);
+        if(activePiece instanceof Pawn){
+            if(canTransform((Pawn) activePiece)){
+                activeField.transform();
+            }
+        }
+    }
+
+    private boolean canTransform(Pawn pawn) {
+        if (pawn.isPlayerOne() && activeField.position.y == 7) return true;
+        else if (!pawn.isPlayerOne() && activeField.position.y == 0) return true;
+        else return false;
     }
 
     private void checkIfKingDied() {
@@ -72,16 +85,10 @@ public class TurnManager {
     }
 
     public void firstClick() {
-        startField = activeField;       movementOptions = startField.getMovementOptions(board);
+        startField = activeField;
+        movementOptions = startField.getMovementOptions(board);
     }
 
-
-    public Position getStartFieldPosition() {
-        if (startField!= null){
-            return startField.getPosition();
-        }
-        return null;
-    }
 
     public void validClick(){
         if(!firstClickInTurn){
@@ -118,5 +125,23 @@ public class TurnManager {
 
     public void setKingTwo(Field kingTwo) {
         this.kingTwo = kingTwo;
+    }
+
+    public boolean isMovementOptions() {
+        if(firstClickInTurn) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    public ArrayList<Position> getReturnPositions() {
+            ArrayList<Position> newMovementOptions = new ArrayList<>();
+            for (ArrayList<Position> movementRow : movementOptions) {
+                newMovementOptions.addAll(movementRow);
+            }
+            newMovementOptions.add(startField.getPosition());
+            return newMovementOptions;
     }
 }
