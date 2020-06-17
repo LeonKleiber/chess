@@ -20,29 +20,38 @@ public class Bishop extends ChessPiece {
         ArrayList<Position> br = new ArrayList<Position>();
         int y = position.y;
             for (int i = position.x; i < 7; i++) {
-                fl.add(new Position(i + 1, y + 1));
-                System.out.println((i + 1) + " und " + (y + 1));
-                y++;
+                if(y < 7 && y >= 0) {
+                    fl.add(new Position(i + 1, y + 1));
+                    System.out.println("A " + (i + 1) + " und " + (y + 1));
+                    y++;
+                }
             }
+
             y = position.y;
             for(int i = position.x; i > 0; i--){
-                fr.add(new Position(i - 1, y - 1));
-                System.out.println((i - 1) +" und "+ (y + 1));
-                y++;
+                if(y < 7 && y >= 0) {
+                    fr.add(new Position(i - 1, y + 1));
+                    System.out.println("B " + (i - 1) + " und " + (y + 1));
+                    y++;
+                }
             }
 
-                y = position.x;
-            for (int i = position.y; i < 7; i++) {
-                bl.add(new Position(y + 1, i + 1));
-                System.out.println((y + 1) + " und " + (i + 1));
-                y++;
+                y = position.y;
+            for (int i = position.x; i < 7; i++) {
+                if(y <= 7 && y > 0) {
+                    bl.add(new Position(i + 1, y - 1));
+                    System.out.println("C "+ (i + 1) + " und " + (y - 1));
+                    y--;
+                }
             }
 
-                y = position.x;
-            for(int i = position.y; i > 0; i--){
-                br.add(new Position((y -1), i - 1));
-                System.out.println(position.x + " und " + (i - 1));
-                y++;
+                y = position.y;
+            for(int i = position.x; i > 0; i--){
+                if(y <= 7 && y > 0) {
+                    br.add(new Position(i - 1, y - 1));
+                    System.out.println("D "+ (i - 1) + " und " + (y - 1));
+                    y--;
+                }
             }
             positions.add(fl);
             positions.add(fr);

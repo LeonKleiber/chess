@@ -13,6 +13,15 @@ public class Queen extends ChessPiece {
 
     @Override
     public ArrayList<ArrayList<Position>> getMovementOptions(Position position) {
-        return null;
+        ArrayList<ArrayList<Position>> positions = new ArrayList<ArrayList<Position>>();
+        ArrayList<Position> fl = new ArrayList<Position>();
+        ArrayList<Position> fr = new ArrayList<Position>();
+        ArrayList<Position> bl = new ArrayList<Position>();
+        ArrayList<Position> br = new ArrayList<Position>();
+        ArrayList<Position> f = new ArrayList<Position>();
+        ArrayList<Position> b = new ArrayList<Position>();
+        ArrayList<Position> l = new ArrayList<Position>();
+        ArrayList<Position> r = new ArrayList<Position>();
+        return positions;
     }
 }
