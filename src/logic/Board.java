@@ -2,6 +2,8 @@ package logic;
 
 import dto.Position;
 
+import java.util.ArrayList;
+
 public class Board {
 
     private Field [][] fields;
@@ -24,9 +26,9 @@ public class Board {
         return fields[position.y][position.x];
     }
 
-    public Position validateClick(Position position) {
+    public ArrayList<Position> validateClick(Position position) {
         turnManager.click(getField(position));
-        return turnManager.getStartFieldPosition();
+        return turnManager.getReturnPositions();
     }
 
     public void endGame(Winner winner) {
@@ -40,5 +42,10 @@ public class Board {
 
     public Winner getWinner() {
         return winner;
+    }
+
+
+    public boolean isMovementOption() {
+        return turnManager.isMovementOptions();
     }
 }

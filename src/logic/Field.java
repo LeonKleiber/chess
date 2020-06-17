@@ -1,7 +1,6 @@
 package logic;
 
-import data.ChessPiece;
-import data.Pawn;
+import data.*;
 import dto.Position;
 
 import javax.swing.*;
@@ -106,7 +105,7 @@ public class Field {
         if (chessPiece != null){
             return chessPiece.getImage();
         }
-        return null;
+        return new ImageIcon();
     }
 
     public Position getPosition() {
@@ -115,5 +114,10 @@ public class Field {
 
     public ChessPiece getChessPiece() {
         return chessPiece;
+    }
+
+    public void transform() {
+        boolean p1 = chessPiece.isPlayerOne();
+        this.chessPiece = new Queen(p1);
     }
 }
