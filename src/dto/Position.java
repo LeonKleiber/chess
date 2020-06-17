@@ -1,7 +1,5 @@
 package dto;
 
-import java.util.Objects;
-
 public class Position {
     public int x;
     public int y;

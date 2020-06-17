@@ -87,9 +87,6 @@ public class Field {
                 break;
             }
         }
-        for(Position p : newMoveOptions){
-            System.out.println(p.x + ","+p.y);
-        }
         return newMoveOptions;
     }
 

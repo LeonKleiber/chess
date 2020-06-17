@@ -19,22 +19,18 @@ public class Rook extends ChessPiece{
         ArrayList<Position> br = new ArrayList<Position>();
            for (int i = position.x; i < 7; i++) {
                 fl.add(new Position(i + 1, position.y));
-                System.out.println(( i + 1) + " und " + position.y);
             }
 
             for(int i = position.x; i > 0; i--){
                 fr.add(new Position(i-1, position.y));
-                System.out.println((i-1) +" und "+position.y);
             }
 
             for (int i = position.y; i < 7; i++) {
                 bl.add(new Position(position.x, i + 1));
-                System.out.println(position.x + " und " + (i + 1));
             }
 
             for(int i = position.y; i > 0; i--){
                 br.add(new Position(position.x, i - 1));
-                System.out.println(position.x + " und " + (i - 1));
             }
             positions.add(fl);
             positions.add(fr);

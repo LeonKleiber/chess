@@ -22,7 +22,6 @@ public class Bishop extends ChessPiece {
             for (int i = position.x; i < 7; i++) {
                 if(y < 7 && y >= 0) {
                     fl.add(new Position(i + 1, y + 1));
-                    System.out.println("A " + (i + 1) + " und " + (y + 1));
                     y++;
                 }
             }
@@ -31,7 +30,6 @@ public class Bishop extends ChessPiece {
             for(int i = position.x; i > 0; i--){
                 if(y < 7 && y >= 0) {
                     fr.add(new Position(i - 1, y + 1));
-                    System.out.println("B " + (i - 1) + " und " + (y + 1));
                     y++;
                 }
             }
@@ -40,7 +38,6 @@ public class Bishop extends ChessPiece {
             for (int i = position.x; i < 7; i++) {
                 if(y <= 7 && y > 0) {
                     bl.add(new Position(i + 1, y - 1));
-                    System.out.println("C "+ (i + 1) + " und " + (y - 1));
                     y--;
                 }
             }
@@ -49,7 +46,6 @@ public class Bishop extends ChessPiece {
             for(int i = position.x; i > 0; i--){
                 if(y <= 7 && y > 0) {
                     br.add(new Position(i - 1, y - 1));
-                    System.out.println("D "+ (i - 1) + " und " + (y - 1));
                     y--;
                 }
             }

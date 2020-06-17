@@ -6,7 +6,6 @@ import data.Pawn;
 import dto.Position;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class TurnManager {
 

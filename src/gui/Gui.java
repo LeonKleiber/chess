@@ -2,7 +2,6 @@ package gui;
 
 import dto.Position;
 import logic.Board;
-import logic.Field;
 import logic.Winner;
 
 import javax.swing.*;

@@ -1,8 +1,5 @@
 package starter;
 
-
-import data.Rook;
-import dto.Position;
 import gui.Gui;
 
 public class Chess {
