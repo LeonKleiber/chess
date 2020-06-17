@@ -3,12 +3,16 @@ package gui;
 import dto.Position;
 import logic.Board;
 import logic.Field;
+import logic.Winner;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Gui extends JFrame {
 
+
+    private String Player1 = "player 1";
+    private String Player2 = "player 2";
 
     private Board board = new Board();
 
@@ -65,8 +69,31 @@ public class Gui extends JFrame {
         return fieldBtn;
     }
 
+    public void close() {
+        setVisible(false);
+        dispose();
+    }
 
     public ChessField getChessField(Position p) {
         return buttonList[p.y][p.x];
+    }
+
+    public void displayWinner(Winner winner) {
+        new EndScreen(this, "Game over", getMessage(winner));
+    }
+
+    private String getMessage(Winner winner) {
+        String message = "And the winner is ";
+        switch (winner){
+            case PLAYER1:
+                return message + this.Player1;
+            case PLAYER2:
+                return message + this.Player2;
+            case DRAW:
+                return "It's a draw";
+            default:
+                throw new IllegalArgumentException();
+        }
+
     }
 }
