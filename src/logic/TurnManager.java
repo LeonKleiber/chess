@@ -11,7 +11,12 @@ public class TurnManager {
     private boolean turnPlayerOne = true;
     private Field startField;
     private Field activeField;
+    private Board board;
     ArrayList<ArrayList<Position>> movementOptions;
+
+    public TurnManager(Board b){
+        board= b;
+    }
 
     public void click(Field field){
         activeField = field;
@@ -41,7 +46,7 @@ public class TurnManager {
 
     public void firstClick() {
         startField = activeField;
-        movementOptions = startField.getMovementOptions();
+        movementOptions = startField.getMovementOptions(board);
     }
 
 

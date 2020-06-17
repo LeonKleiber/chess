@@ -10,7 +10,6 @@ public class StartPosition {
     public StartPosition(){
 
         Field field;
-        ChessPiece rook = new Rook(true);
         for (int y = 0; y < startPosition.length; y++){
             for(int x = 0; x < startPosition[y].length; x++){
                 switch (y){

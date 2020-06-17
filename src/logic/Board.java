@@ -11,7 +11,7 @@ public class Board {
 
     public Board(){
         fields = new StartPosition().getFields();
-        turnManager = new TurnManager();
+        turnManager = new TurnManager(this);
     }
 
     public Field getField(Position position) {
