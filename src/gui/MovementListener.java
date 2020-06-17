@@ -25,5 +25,8 @@ public class MovementListener implements ActionListener {
             gui.getChessField(positionPrevClick).setIcon(board.getField(positionPrevClick).getImage());
             fieldBtn.setIcon(board.getField(fieldBtn.getPosition()).getImage());
         }
+        if (board.hasEnded()){
+            gui.displayWinner(board.getWinner());
+        }
     }
 }

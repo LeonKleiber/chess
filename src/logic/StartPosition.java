@@ -56,4 +56,6 @@ public class StartPosition {
     public Field[][] getFields(){
         return startPosition;
     }
+    public Field getKingOne() { return startPosition[0][4];}
+    public Field getKingTwo() { return startPosition[7][4];}
 }

@@ -4,14 +4,20 @@ import dto.Position;
 
 public class Board {
 
-    Field [][] fields;
+    private Field [][] fields;
 
-    TurnManager turnManager;
+    private TurnManager turnManager;
 
+    private boolean gameOver = false;
+
+    private Winner winner;
 
     public Board(){
-        fields = new StartPosition().getFields();
+        StartPosition startPosition = new StartPosition();
+        fields = startPosition.getFields();
         turnManager = new TurnManager(this);
+        turnManager.setKingOne(startPosition.getKingOne());
+        turnManager.setKingTwo(startPosition.getKingTwo());
     }
 
     public Field getField(Position position) {
@@ -21,5 +27,18 @@ public class Board {
     public Position validateClick(Position position) {
         turnManager.click(getField(position));
         return turnManager.getStartFieldPosition();
+    }
+
+    public void endGame(Winner winner) {
+        this.winner = winner;
+        gameOver = true;
+    }
+
+    public boolean hasEnded(){
+        return gameOver;
+    }
+
+    public Winner getWinner() {
+        return winner;
     }
 }
